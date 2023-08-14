@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Convene</title>
+	<!-- Office JavaScript API -->
+	<script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+<button id="btn-url-from-browser">Get URL from Browser</button>
+<p id="url-from-browser"></p>
+
+<button id="btn-url-from-office">Get URL from Office</button>
+<p id="url-from-office"></p>
+
+<script>
+	Office.onReady((info) => {
+		document.getElementById("btn-url-from-browser").addEventListener("click", () => {
+			document.getElementById("url-from-browser").innerHTML = window.location.href;
+		});
+
+		document.getElementById("btn-url-from-office").addEventListener("click", () => {
+			document.getElementById("url-from-office").innerHTML = Office.context.Document.url;
+		});
+	});
+</script>
+</body>
+</html>

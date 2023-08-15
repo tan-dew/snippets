@@ -20,7 +20,9 @@
 		});
 
 		document.getElementById("btn-url-from-office").addEventListener("click", () => {
-			document.getElementById("url-from-office").innerHTML = Office.context.Document.url;
+			Office.context.document.getFilePropertiesAsync((asyncResult) => {
+				document.getElementById("url-from-office").innerHTML = asyncResult.value.url;
+			});
 		});
 	});
 </script>
